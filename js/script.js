@@ -17,4 +17,16 @@ async function fetchGifs() {
         for (const gif of data.data) {
             images.push(gif.images.original.url);
         }
+         container.innerHTML = "";
+
+        for (const image of images) {
+            container.innerHTML += `<img src="${image}" class="col-3 mb-3" alt="GIF">`;
+        }
+    } catch (error) {
+        console.log("Error:", error);
+    }
+}
+// run the function when the button is clicked
+button.addEventListener("click", fetchGifs);
+
        
